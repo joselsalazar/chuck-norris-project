@@ -1,0 +1,19 @@
+.page-header {
+	background-color: black;
+}
+
+h1, h3 {
+	text-align: center;
+	background-color: black;
+	color: white;
+}
+
+#backgroundImg {
+	position: relative;
+	z-index: 1;
+}
+
+#Chuck {
+	position: absolute;
+	z-index: 10;
+}
