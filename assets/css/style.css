@@ -15,6 +15,10 @@ h1, h3 {
 	
 }
 
+.pageBackground{
+	position: relative;
+}
+
 #Chuck {
 	position: absolute;
 	top: 40%;
