@@ -10,10 +10,15 @@ h1, h3 {
 
 #backgroundImg {
 	position: relative;
-	z-index: 1;
+	top: 0;
+	left: 0;
+	
 }
 
 #Chuck {
 	position: absolute;
-	z-index: 10;
+	top: 40%;
+	left: 200px;
+	width: 30%;
+	
 }
