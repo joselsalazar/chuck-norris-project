@@ -1,5 +1,6 @@
 var queryURL = "";
 var query = "";
+var randomQuery = [];
 
 $("#submit-query").click(function() {
   event.preventDefault();
@@ -14,7 +15,13 @@ $.ajax({
     method: "GET"
   })
   .done(function(response) {
-    console.log(response.result[0]);
-    $('.answer-p').html(response.result[0].value);
+    for (var i=0; i<response.result.length; i++){
+      var responses = response.result[i].value;
+      randomQuery.push(responses);
+    }
+    
+    var chuckAnswer = randomQuery[Math.floor(Math.random() * randomQuery.length)];
+    console.log(chuckAnswer);
+    $('.answer-p').html(chuckAnswer);
   });
 }
