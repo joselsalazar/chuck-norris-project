@@ -1,10 +1,10 @@
-var queryURL = "https://api.chucknorris.io/jokes/random?query=";
+var queryURL = "";
 var query = "";
 
 $("#submit-query").click(function() {
   event.preventDefault();
   query = $('#query').val().trim();
-  queryURL = "https://api.chucknorris.io/jokes/random?query=" + query;
+  queryURL = "https://api.chucknorris.io/jokes/search?query=" + query;
   runAJAX();
 })
 
