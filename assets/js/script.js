@@ -14,7 +14,7 @@ $.ajax({
     method: "GET"
   })
   .done(function(response) {
-    console.log(response);
-    $('.answer-p').html(response.value);
+    console.log(response.result[0]);
+    $('.answer-p').html(response.result[0].value);
   });
 }
