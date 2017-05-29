@@ -62,3 +62,4 @@ $.ajax({
 }
 
 // To Do
+// 1. Add Giphy Integration

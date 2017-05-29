@@ -8,6 +8,10 @@
 	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<!-- CSS file -->
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	<!-- Google Font -->
+	<link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah" rel="stylesheet">
+	<!-- Favicon -->
+	<link rel="icon" href="assets/img/norris-favicon.ico" type="image/x-icon" />
 	<!-- jQuery CDN -->
 	<script
 	  src="https://code.jquery.com/jquery-3.2.1.js"
@@ -18,28 +22,32 @@
 	<div class="container">
 		<div class="page-header">
 			<h1>What Would Chuck Norris Do?</h1>
-			<h3>Chuck is here to fight for your relationship!</h3>
+			<h3>Having Trouble in Life? Let Chuck Norris guide you!</h3>
 		</div>
 	</div>
 
 	<div class="container">
-		<div class="row">
+		<main class="row">
 			<form onsubmit="return sendToAjax()">
 			  <div class="form-group">
-			    <label for="query">Placeholder</label>
+			    <label for="query">What Are You Having Trouble With?</label>
+			    <span>Enter a term below (e.g. "men", "women", "life") and submit to get a relevant Chuck Norris fact that you can use to better your life.</span>
 			    <input type="text" class="form-control" id="query">
+			  	<button type="submit" id="submit-query" class="submit-button">Submit</button>
 			  </div>
-			  <button type="submit" id="submit-query">Submit</button>
 			</form>
-			<div class="answer">
-				<p class="answer-p"></p>
-			</div>
 			<div class="pageBackground">
+				<div class="answer">
+					<p class="answer-p">What is Chuck Thinking?</p>
+				</div>
 				<img src="assets/img/tropicalCouple.jpg" class="img-responsive" alt="couple on beach" id="backgroundImg">
 				<img src="assets/img/chuckGuns.png" class="img-responsive" alt="Chuck Norris" id="Chuck">
 			</div><!-- background -->
-		</div><!-- row -->
+		</main><!-- row -->
 	</div> <!--container-->
+	<footer>
+		<p>Copyright Muffin Wasp Productions&copy;</p>
+	</footer>
 
 	
 
