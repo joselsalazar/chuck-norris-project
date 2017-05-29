@@ -69,10 +69,14 @@ h1, h3 {
 	position: relative;
 }
 
+.form-group label {
+	font-size: 1.3em;
+}
+
 .form-group button {
 	position: absolute;
 	right: 0px;
-	top: 60px;
+	top: 65px;
 	height: 35px;
 
 }
@@ -80,6 +84,7 @@ h1, h3 {
 .form-group span {
 	display: block;
 	margin-bottom: 15px;
+	font-size: 1.1em;
 }
 
 .pageBackground{
