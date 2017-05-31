@@ -1,16 +1,23 @@
+// Variables
+const APIKey = "dc6zaTOxFJmzC";
+
+// Initialize Variables
 var queryURL = "";
 var query = "";
 var randomQuery = [];
 var chuckAnswer = "";
 
+// AJAX Function
 function sendToAjax() {
   event.preventDefault();
   query = $('#query').val().trim();
   queryURL = "https://api.chucknorris.io/jokes/search?query=" + query;
   backupQueryURL = "https://api.chucknorris.io/jokes/random";
   runAJAX();
+  assignGifs();
 }
 
+// AJAX Call For Chuck Norris Facts
 function runAJAX() {
 $.ajax({
     url: queryURL,
@@ -26,7 +33,7 @@ $.ajax({
       })
       .done(function(response) {
         console.log(response);
-        var chuckAnswer = response.value;
+        chuckAnswer = response.value;
         $('.answer-p').html(chuckAnswer);
       })
     } else {
@@ -34,7 +41,7 @@ $.ajax({
         var responses = response.result[i].value;
         randomQuery.push(responses);
       }
-      var chuckAnswer = randomQuery[Math.floor(Math.random() * randomQuery.length)];
+      chuckAnswer = randomQuery[Math.floor(Math.random() * randomQuery.length)];
       console.log(chuckAnswer);
       $('.answer-p').html(chuckAnswer);
     }
@@ -61,5 +68,26 @@ $.ajax({
   });
 }
 
-// To Do
-// 1. Add Giphy Integration
+// Giphy Function
+function assignGifs() {
+  giphyURL = "http://api.giphy.com/v1/gifs/search?q=chuck+norris+" + query + "&api_key=" + APIKey;
+  $.ajax({
+    url: giphyURL,
+    method: "GET"
+  }).done(function(giphyResponse) {
+    var evenDiv = $(".giphy-even");
+    var oddDiv = $(".giphy-odd");
+    var giphyDrop = $('.giphy-drop');
+    for(var i=0; i < 12; i++) {
+      var gif = $("<img>");
+      gif.addClass('gifs');
+      gif.attr("src", giphyResponse.data[i].images.downsized.url);
+      if (i % 2) {
+        evenDiv.append(gif);
+      } else {
+        oddDiv.append(gif);
+      }
+    }
+  })
+}
+
