@@ -70,7 +70,7 @@ $.ajax({
 
 // Giphy Function
 function assignGifs() {
-  giphyURL = "http://api.giphy.com/v1/gifs/search?q=chuck+norris+" + query + "&api_key=" + APIKey;
+  giphyURL = "http://api.giphy.com/v1/gifs/search?q=norris+" + query + "&api_key=" + APIKey;
   $.ajax({
     url: giphyURL,
     method: "GET"
@@ -78,6 +78,8 @@ function assignGifs() {
     var evenDiv = $(".giphy-even");
     var oddDiv = $(".giphy-odd");
     var giphyDrop = $('.giphy-drop');
+    evenDiv.empty();
+    oddDiv.empty();
     for(var i=0; i < 12; i++) {
       var gif = $("<img>");
       gif.addClass('gifs');

@@ -8,4 +8,4 @@
 =========================================
 	TO DO
 =========================================
-- Add Giphy Functionality.
+- Add Forum Functionality

@@ -131,3 +131,13 @@ h1, h3 {
 	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#390e0d', endColorstr='#d13531',GradientType=0);
 	background-color:#390e0d;
 }
+
+.giphy-drop {
+	background: #000;
+	position: relative;
+}
+
+.giphy-drop img {
+	width: 100%;
+	padding-top: 10px;
+}
