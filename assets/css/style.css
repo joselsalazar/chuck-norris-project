@@ -3,7 +3,7 @@ body {
 	background-image: url("../img/chuckGuns.png");  fallback 
 	background-image: url("../img/chuckGuns.png"), -webkit-linear-gradient(#000, #d13531);
 	background-image: url("../img/chuckGuns.png"), -o-linear-gradient(#000, #d13531);
-	background-image: url("../img/chuckGuns.png"), linear-gradient(#000, #d13531, transparent); /* W3C 
+	background-image: url("../img/chuckGuns.png"), linear-gradient(#000, #d13531, transparent);  W3C 
 	/*background-image: url("../img/stars.jpg");*/
 	font-family: 'Gloria Hallelujah', cursive;
 }
