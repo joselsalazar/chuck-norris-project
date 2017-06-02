@@ -6,6 +6,8 @@ var queryURL = "";
 var query = "";
 var randomQuery = [];
 var chuckAnswer = "";
+var joke = "";
+var title = "";
 
 // AJAX Function
 function sendToAjax() {
@@ -93,3 +95,17 @@ function assignGifs() {
   })
 }
 
+// Collect Jokes for Firebase
+title = $("#title").val().trim();
+joke = $("#joke").val().trim();
+
+title: title,
+joke: joke
+
+// Submit Jokes to Firebase
+database.ref().on("child_added", function(snapshot) {
+  
+  });
+}, function(errorObject) {
+  console.log("The read failed: " + errorObject.code);
+};
