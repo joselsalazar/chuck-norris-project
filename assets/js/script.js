@@ -1,3 +1,15 @@
+// Initialize Firebase
+var config = {
+  apiKey: "AIzaSyB3Iobm7GjLzr9jv4mW1E7zo5Jev-dZg0U",
+  authDomain: "chuck-norris-storage-f4d7f.firebaseapp.com",
+  databaseURL: "https://chuck-norris-storage-f4d7f.firebaseio.com",
+  projectId: "chuck-norris-storage-f4d7f",
+  storageBucket: "chuck-norris-storage-f4d7f.appspot.com",
+  messagingSenderId: "443783261542"
+};
+
+firebase.initializeApp(config);
+
 // Variables
 const APIKey = "dc6zaTOxFJmzC";
 
@@ -8,6 +20,8 @@ var randomQuery = [];
 var chuckAnswer = "";
 var joke = "";
 var title = "";
+
+var database = firebase.database();
 
 // AJAX Function
 function sendToAjax() {
@@ -98,13 +112,14 @@ function assignGifs() {
 // Collect Jokes for Firebase
 title = $("#title").val().trim();
 joke = $("#joke").val().trim();
-
-title: title,
-joke: joke
+database.ref().push({
+  title: title,
+  joke: joke
+});
 
 // Submit Jokes to Firebase
 database.ref().on("child_added", function(snapshot) {
-  
+    console.log(snapshot);
   });
 }, function(errorObject) {
   console.log("The read failed: " + errorObject.code);
