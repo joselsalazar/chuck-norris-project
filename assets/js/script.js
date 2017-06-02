@@ -9,6 +9,7 @@ var config = {
 };
 
 firebase.initializeApp(config);
+var database = firebase.database();
 
 // Variables
 const APIKey = "dc6zaTOxFJmzC";
@@ -21,7 +22,6 @@ var chuckAnswer = "";
 var joke = "";
 var title = "";
 
-var database = firebase.database();
 
 // AJAX Function
 function sendToAjax() {
@@ -112,15 +112,18 @@ function assignGifs() {
 // Collect Jokes for Firebase
 // title = $("#title").val().trim();
 joke = $("#joke").val().trim();
-database.ref().push({
-  // title: title,
-  joke: joke
-});
+
+function pushChuck() {
+  database.ref().push({
+    // title: title,
+    joke: joke
+  });
+}
 
 // Submit Jokes to Firebase
 database.ref().on("child_added", function(snapshot) {
     console.log(snapshot);
-  });
-}, function(errorObject) {
+}), 
+  function(errorObject) {
   console.log("The read failed: " + errorObject.code);
 };
