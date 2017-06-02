@@ -110,10 +110,10 @@ function assignGifs() {
 }
 
 // Collect Jokes for Firebase
-title = $("#title").val().trim();
+// title = $("#title").val().trim();
 joke = $("#joke").val().trim();
 database.ref().push({
-  title: title,
+  // title: title,
   joke: joke
 });
 
