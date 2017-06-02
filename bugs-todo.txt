@@ -10,4 +10,4 @@
 =========================================
 - Add Functionality that pulls from Firebase and Chuck Norris API.
 - Add Forum Functionality
-- Fix CSS Button
+- Fix CSS Button!

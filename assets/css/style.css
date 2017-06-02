@@ -94,8 +94,8 @@ h1, h3 {
 
 .form-group button {
 	position: absolute;
-	right: 0px;
-	top: 65px;
+	right: 0;
+	top: 0;
 	height: 35px;
 
 }
@@ -159,4 +159,8 @@ h1, h3 {
 .giphy-drop img {
 	width: 100%;
 	padding-top: 10px;
+}
+
+.pos-rel {
+	position: relative;
 }

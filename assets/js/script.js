@@ -127,9 +127,12 @@ $("#submit-jokes").click(function() {
 });
 
 // Submit Jokes to Firebase
+  
+// var ref = firebase.database().ref("chuck-norris-storage-f4d7f");
+// ref.orderByKey().endAt("girls").on("child_added", function(snapshot) {
+//   console.log(snapshot.key);
+// });
+
 database.ref().on("child_added", function(snapshot) {
-    console.log(snapshot);
-}), 
-  function(errorObject) {
-  console.log("The read failed: " + errorObject.code);
-};
+  console.log(snapshot.val().joke);
+});
