@@ -111,7 +111,7 @@ function assignGifs() {
 
 // Collect Jokes for Firebase
 // title = $("#title").val().trim();
-joke = $("#joke").val().trim();
+
 
 function pushChuck() {
   database.ref().push({
@@ -119,6 +119,12 @@ function pushChuck() {
     joke: joke
   });
 }
+
+// Click Function 
+$("#submit-jokes").click(function() {
+  joke = $("#joke").val().trim();
+  pushChuck();
+});
 
 // Submit Jokes to Firebase
 database.ref().on("child_added", function(snapshot) {

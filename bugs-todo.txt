@@ -8,6 +8,6 @@
 =========================================
 	TO DO
 =========================================
-- Add Functionality so that user cna input their own jokes and are added.
+- Add Functionality that pulls from Firebase and Chuck Norris API.
 - Add Forum Functionality
 - Fix CSS Button
