@@ -17,7 +17,7 @@ var database = firebase.database();
 var post = "";
 var postTitle = "";
 var userId = "";
-var e = 0;
+var imgProfile = "";
 
 // Click Button changes what is stored in firebase
 $("#submit-post").on("click", function() {
@@ -27,27 +27,31 @@ $("#submit-post").on("click", function() {
   // Get inputs
   postTitle = $("#title-post").val().trim();
   post = $("#post").val().trim();
+  imgProfile = $("#profile-img").val().trim();
   userId = postTitle;
-
-  // Store e in firebase??
-
-  function ePush() {
-    e++;
-  }
 
   // Change what is saved in firebase
   database.ref('norris-post/' + userId).push({
     postTitle: postTitle,
-    post: post
+    post: post,
+    imgProfile: imgProfile
   });
 });
 
 // Firebase is always watching for changes to the data.
 // When changes occurs it will print them to console and html
 database.ref("norris-post").on("child_added", function(snapshot) {
-
-  // Print the initial data to the console.
+  // Print the initial data to the console for troubleshooting.
   console.log(snapshot.val());
+  // Add Divs From Snapshot Info
+  var newPost = $("<div>");
+  newPost.addClass("post-div");
+  newPost.append("<h2>" + postTitle + "</h2>");
+  newPost.append("<p>" + post + "</p>");
+  newPost.append("<img src=" + imgProfile + ">");
+
+  var forumPost = $('.forum');
+  forumPost.append(newPost);
 
   // If any errors are experienced, log them to console.
 }, function(errorObject) {
