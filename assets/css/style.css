@@ -30,7 +30,14 @@ footer, header, hgroup, menu, nav, section {
 }
 
 body {
-  line-height: 1;
+
+	background: #000;
+	background-image: url("../img/chuckGuns.png"); 
+	background-image: url("../img/chuckGuns.png"), -webkit-linear-gradient(#000, #d13531);
+	background-image: url("../img/chuckGuns.png"), -o-linear-gradient(#000, #d13531);
+	background-image: url("../img/chuckGuns.png"), linear-gradient(#000, #d13531, transparent);
+	/*background-image: url("../img/stars.jpg");*/
+	font-family: 'Exo 2', sans-serif;
 }
 
 ol, ul {
@@ -100,7 +107,9 @@ main.row {
 }
 
 .page-header {
-  background-color: black;
+
+	background-color: black;
+	text-align: center;
 }
 
 .form-control {
@@ -209,7 +218,12 @@ h1, h3 {
 }
 
 .pos-rel {
-  position: relative;
+	position: relative;
 }
 
-/*# sourceMappingURL=style.css.map */
+#smilingChuck {
+	width: 10%;
+	float: left;
+	padding: 0%;
+	margin: 0%;
+}
