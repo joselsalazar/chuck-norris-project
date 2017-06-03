@@ -132,6 +132,11 @@ h1, h3 {
   left: 0;
 }
 
+.post-style input,
+.post-style textarea {
+  color: #000;
+}
+
 .form-group {
   position: relative;
 }

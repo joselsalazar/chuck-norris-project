@@ -1,7 +1,5 @@
 @import 'reset';
 
-$blue: #0000FF;
-
 body {
 	background: #000;
 	background-image: url("../img/chuckGuns.png");  /*fallback*/ 
@@ -83,6 +81,13 @@ h1, h3 {
 	top: 0;
 	left: 0;
 	
+}
+
+.post-style {
+	input,
+	textarea {
+		color: #000;
+	}
 }
 
 .form-group {
