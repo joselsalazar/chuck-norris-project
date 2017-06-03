@@ -58,4 +58,5 @@ database.ref("norris-post").on("child_added", function(snapshot) {
   console.log("The read failed: " + errorObject.code);
 });
 
-console.log("TEST!");
+// TO-DO 
+// Allow Duplicate Titles to post. Check if the title exists and do something about it so it can post.
