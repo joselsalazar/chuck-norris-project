@@ -16,7 +16,7 @@ var database = firebase.database();
 // Note remember to create these same variables in Firebase!
 var post = "";
 var postTitle = "";
-var userId = "post-";
+var userId = "";
 var e = 0;
 
 // Click Button changes what is stored in firebase
@@ -27,6 +27,7 @@ $("#submit-post").on("click", function() {
   // Get inputs
   postTitle = $("#title-post").val().trim();
   post = $("#post").val().trim();
+  userId = postTitle;
 
   // Store e in firebase??
 
@@ -35,7 +36,7 @@ $("#submit-post").on("click", function() {
   }
 
   // Change what is saved in firebase
-  database.ref('norris-post/' + userId + e).push({
+  database.ref('norris-post/' + userId).push({
     postTitle: postTitle,
     post: post
   });
