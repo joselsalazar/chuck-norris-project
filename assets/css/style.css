@@ -30,14 +30,7 @@ footer, header, hgroup, menu, nav, section {
 }
 
 body {
-
-	background: #000;
-	background-image: url("../img/chuckGuns.png"); 
-	background-image: url("../img/chuckGuns.png"), -webkit-linear-gradient(#000, #d13531);
-	background-image: url("../img/chuckGuns.png"), -o-linear-gradient(#000, #d13531);
-	background-image: url("../img/chuckGuns.png"), linear-gradient(#000, #d13531, transparent);
-	/*background-image: url("../img/stars.jpg");*/
-	font-family: 'Exo 2', sans-serif;
+  line-height: 1;
 }
 
 ol, ul {
@@ -62,7 +55,6 @@ table {
 body {
   background: #000;
   background-image: url("../img/chuckGuns.png");
-  /*fallback*/
   background-image: url("../img/chuckGuns.png"), linear-gradient(#000, #d13531, transparent);
   font-family: 'Gloria Hallelujah', cursive;
 }
@@ -107,9 +99,7 @@ main.row {
 }
 
 .page-header {
-
-	background-color: black;
-	text-align: center;
+  background-color: black;
 }
 
 .form-control {
@@ -135,10 +125,25 @@ h1, h3 {
   font-size: 1.15em;
 }
 
+.content-div h2 {
+  font-size: 1.3em;
+  line-height: 1.3;
+}
+
 #backgroundImg {
   position: relative;
   top: 0;
   left: 0;
+}
+
+#smilingChuck {
+  width: 150px;
+}
+
+.post-div {
+  margin: 10px 0;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #fff;
 }
 
 .post-style input,
@@ -167,6 +172,10 @@ h1, h3 {
   font-size: 1.1em;
 }
 
+.img-div img {
+  width: 100%;
+}
+
 .pageBackground {
   position: relative;
 }
@@ -179,6 +188,11 @@ h1, h3 {
 }
 
 .submit-button {
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #d13531), color-stop(1, #390e0d));
+  background: -moz-linear-gradient(top, #d13531 5%, #390e0d 100%);
+  background: -webkit-linear-gradient(top, #d13531 5%, #390e0d 100%);
+  background: -o-linear-gradient(top, #d13531 5%, #390e0d 100%);
+  background: -ms-linear-gradient(top, #d13531 5%, #390e0d 100%);
   background: linear-gradient(to bottom, #d13531 5%, #390e0d 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#d13531', endColorstr='#390e0d',GradientType=0);
   background-color: #d13531;
@@ -218,12 +232,33 @@ h1, h3 {
 }
 
 .pos-rel {
-	position: relative;
+  position: relative;
 }
 
-#smilingChuck {
-	width: 10%;
-	float: left;
-	padding: 0%;
-	margin: 0%;
+input,
+textarea {
+  display: block;
+  width: 100%;
+  margin-bottom: 20px;
 }
+
+.new-post {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.title-head h1 {
+  font-size: 3em;
+  line-height: 2;
+}
+.title-head h3 {
+  font-size: 1.5em;
+}
+
+.group:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/*# sourceMappingURL=style.css.map */

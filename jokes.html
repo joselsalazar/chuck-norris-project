@@ -20,9 +20,16 @@
 	  <script src="https://www.gstatic.com/firebasejs/4.1.1/firebase.js"></script>
 </head>
 <body>
+	<!-- Header -->
 	<div class="container">
-		<div class="page-header">
-			<h1>Submit your jokes</h1>
+		<div class="page-header row">
+			<div class="col-md-4">
+				<img src="assets/img/smilingChuck.jpg" id="smilingChuck">
+			</div>
+			<div class="col-md-8 title-head">
+				<h1>What Would Chuck Norris Do?</h1>
+				<h3>Having Trouble in Life? Let Chuck Norris guide you!</h3>
+			</div>
 		</div>
 		<div class="navigation">
 			<nav>
@@ -34,24 +41,23 @@
 						<a href="jokes.html">Submit!</a>
 					</li>
 					<li>
-						<a href="#">Forum!</a>
+						<a href="forum.html">Forum!</a>
 					</li>
 				</ul>
 			</nav>
 		</div>
+	</div>
+	<!-- Header END -->
 
-		<div class="container">
-			<main class="row">
-				  <div class="form-group">
-				    <label for="joke">Do you have a joke to submit?</label>
-				    <span>your joke here.</span>
-				    <input type="text" class="form-control" name="joke" id="joke">
-				  	<button type="submit" id="submit-jokes" class="submit-button">Submit</button>
-				  </div>
-				</form>
-
-
-
+	<div class="container">
+		<main class="row">
+			<form class="form-group">
+			    <label for="joke">Do you have a joke to submit?</label>
+			    <span>your joke here.</span>
+			    <input type="text" class="form-control" name="joke" id="joke">
+			  	<button type="submit" id="submit-jokes" class="submit-button">Submit</button>
+			</form>
+		</main>
 	</div><!-- container-->
 
 		<footer>

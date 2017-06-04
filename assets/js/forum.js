@@ -23,18 +23,20 @@ var imgProfile = "";
 $("#submit-post").on("click", function() {
   // Prevent the page from refreshing
   event.preventDefault();
+  $('#title-post, #post, #profile-img, #username').empty();
 
   // Get inputs
   postTitle = $("#title-post").val().trim();
   post = $("#post").val().trim();
   imgProfile = $("#profile-img").val().trim();
-  userId = postTitle;
+  username = $("#username").val().trim();
 
   // Change what is saved in firebase
   database.ref("Chuck").push({
     postTitle: postTitle,
     post: post,
-    imgProfile: imgProfile
+    imgProfile: imgProfile,
+    username: username
   });
 });
 
@@ -42,15 +44,20 @@ $("#submit-post").on("click", function() {
 // When changes occurs it will print them to console and html
 database.ref("Chuck").on("child_added", function(snapshot, prevChildKey) {
   // Print the initial data to the console for troubleshooting.
-  postTitle = postTitle;
   console.log(snapshot.val());
-  console.log(snapshot.val().post);
   // Add Divs From Snapshot Info
   var newPost = $("<div>");
-  newPost.addClass("post-div");
-  newPost.append("<h2>" + snapshot.val().postTitle + "</h2>");
-  newPost.append("<p>" + snapshot.val().post + "</p>");
-  newPost.append("<img src=" + snapshot.val().imgProfile + ">");
+  newPost.addClass("post-div group");
+  var imgDiv = $("<div>");
+  imgDiv.addClass("img-div col-md-2");
+  imgDiv.append("<img src=" + snapshot.val().imgProfile + ">");
+  imgDiv.append("<p>" + snapshot.val().username + "</p>");
+  var contentDiv = $("<div>");
+  contentDiv.addClass("content-div col-md-10");
+  contentDiv.append("<h2>" + snapshot.val().postTitle + "</h2>");
+  contentDiv.append("<p>" + snapshot.val().post + "</p>");
+
+  newPost.append(imgDiv, contentDiv);
 
   var forumPost = $('.forum');
   forumPost.append(newPost);
@@ -61,4 +68,3 @@ database.ref("Chuck").on("child_added", function(snapshot, prevChildKey) {
 });
 
 // TO-DO 
-// Allow Duplicate Titles to post. Check if the title exists and do something about it so it can post.
