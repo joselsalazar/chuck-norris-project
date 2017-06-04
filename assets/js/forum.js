@@ -31,7 +31,7 @@ $("#submit-post").on("click", function() {
   userId = postTitle;
 
   // Change what is saved in firebase
-  database.ref('norris-post/' + userId).push({
+  database.ref("Chuck").push({
     postTitle: postTitle,
     post: post,
     imgProfile: imgProfile
@@ -40,15 +40,17 @@ $("#submit-post").on("click", function() {
 
 // Firebase is always watching for changes to the data.
 // When changes occurs it will print them to console and html
-database.ref("norris-post").on("child_added", function(snapshot) {
+database.ref("Chuck").on("child_added", function(snapshot, prevChildKey) {
   // Print the initial data to the console for troubleshooting.
+  postTitle = postTitle;
   console.log(snapshot.val());
+  console.log(snapshot.val().post);
   // Add Divs From Snapshot Info
   var newPost = $("<div>");
   newPost.addClass("post-div");
-  newPost.append("<h2>" + postTitle + "</h2>");
-  newPost.append("<p>" + post + "</p>");
-  newPost.append("<img src=" + imgProfile + ">");
+  newPost.append("<h2>" + snapshot.val().postTitle + "</h2>");
+  newPost.append("<p>" + snapshot.val().post + "</p>");
+  newPost.append("<img src=" + snapshot.val().imgProfile + ">");
 
   var forumPost = $('.forum');
   forumPost.append(newPost);
