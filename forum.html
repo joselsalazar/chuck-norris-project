@@ -23,7 +23,7 @@
 	<div class="container">
 		<div class="page-header row">
 			<div class="col-md-4">
-				<img src="assets/img/smilingChuck.jpg" id="smilingChuck">
+				<img src="assets/img/smilingChuck.png" id="smilingChuck">
 			</div>
 			<div class="col-md-8 title-head">
 				<h1>What Would Chuck Norris Do?</h1>
@@ -53,15 +53,15 @@
 				
 			</div>
 			<div class="new-post">
-				<form class="post-style">
+				<form class="post-style" onsubmit="return runPOST()">
 					<label for="title-post">Title of Post</label>
-					<input type="text" id="title-post" name="title-post"></input>
+					<input type="text" id="title-post" name="title-post" required></input>
 					<label for="post">Fill out post below!</label>
-					<textarea id="post"></textarea>
+					<textarea id="post" required></textarea>
 					<label for="profile-img">Profile Image</label>
-					<input type="text" name="profile-img" id="profile-img">
+					<input type="text" name="profile-img" id="profile-img" required>
 					<label for="username">Username</label>
-					<input type="text" name="username" id="username">
+					<input type="text" name="username" id="username" required>
 					<button type="submit" id="submit-post" class="submit-button">Submit</button>
 				</form>
 			</div>

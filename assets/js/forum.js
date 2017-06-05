@@ -20,7 +20,7 @@ var userId = "";
 var imgProfile = "";
 
 // Click Button changes what is stored in firebase
-$("#submit-post").on("click", function() {
+function runPOST() {
   // Prevent the page from refreshing
   event.preventDefault();
   $('#title-post, #post, #profile-img, #username').empty();
@@ -38,7 +38,7 @@ $("#submit-post").on("click", function() {
     imgProfile: imgProfile,
     username: username
   });
-});
+};
 
 // Firebase is always watching for changes to the data.
 // When changes occurs it will print them to console and html
