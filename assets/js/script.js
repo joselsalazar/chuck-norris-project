@@ -26,7 +26,6 @@ function emptyAll() {
   $('.chuck-jokes').find('input[type=text]').val("");
 }
 
-
 // AJAX Function
 function sendToAjax() {
   event.preventDefault();
@@ -71,6 +70,7 @@ $.ajax({
       return new Array(num + 1).join(this);
     }
 
+    // Filter out curse words
     var filter = ['cock', 'fuck', 'fucks', 'fucking', 'motherfucking', 'fucked-up'];
 
     $('.answer-p').text(function(i, txt){
@@ -114,15 +114,14 @@ function assignGifs() {
   })
 }
 
-// Collect Jokes for Firebase
-// title = $("#title").val().trim();
-
-
+// Submit Jokes / Push to Firebase
 function pushChuck() {
   database.ref().push({
-    // title: title,
     joke: joke
   });
+  var thanksText = $('.thanks');
+  thanksText.html("<h1>Thanks for contributing!</h1>");
+  $('.form-group').empty();
 }
 
 // Click Function 
@@ -132,12 +131,6 @@ $("#submit-jokes").click(function() {
 });
 
 // Submit Jokes to Firebase
-  
-// var ref = firebase.database().ref("chuck-norris-storage-f4d7f");
-// ref.orderByKey().endAt("girls").on("child_added", function(snapshot) {
-//   console.log(snapshot.key);
-// });
-
 database.ref().on("child_added", function(snapshot) {
   console.log(snapshot.val().joke);
 });
