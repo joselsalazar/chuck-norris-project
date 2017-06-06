@@ -22,6 +22,10 @@ var chuckAnswer = "";
 var joke = "";
 var title = "";
 
+function emptyAll() {
+  $('.chuck-jokes').find('input[type=text]').val("");
+}
+
 
 // AJAX Function
 function sendToAjax() {
@@ -31,6 +35,7 @@ function sendToAjax() {
   backupQueryURL = "https://api.chucknorris.io/jokes/random";
   runAJAX();
   assignGifs();
+  emptyAll();
 }
 
 // AJAX Call For Chuck Norris Facts

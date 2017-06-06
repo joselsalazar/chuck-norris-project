@@ -19,17 +19,23 @@ var postTitle = "";
 var userId = "";
 var imgProfile = "";
 
+// Clears Form Values
+function emptyAll() {
+  $('.post-style').find('input[type=text], textarea').val("");
+}
+
 // Click Button changes what is stored in firebase
 function runPOST() {
   // Prevent the page from refreshing
   event.preventDefault();
-  $('#title-post, #post, #profile-img, #username').empty();
 
   // Get inputs
   postTitle = $("#title-post").val().trim();
   post = $("#post").val().trim();
   imgProfile = $("#profile-img").val().trim();
   username = $("#username").val().trim();
+
+  emptyAll();
 
   // Change what is saved in firebase
   database.ref("Chuck").push({
