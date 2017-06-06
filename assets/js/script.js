@@ -22,9 +22,33 @@ var chuckAnswer = "";
 var joke = "";
 var title = "";
 
+// Empties Form
 function emptyAll() {
   $('.chuck-jokes').find('input[type=text]').val("");
 }
+
+// SUBMIT PAGE
+// Submit Jokes / Push to Firebase
+function pushChuck() {
+  database.ref("chuckJokes").push({
+    joke: joke
+  });
+  var thanksText = $('.thanks');
+  thanksText.html("<h1>Thanks for contributing!</h1>");
+  $('.form-group').empty();
+}
+
+// Click Function 
+$("#submit-jokes").click(function() {
+  joke = $("#joke").val().trim();
+  pushChuck();
+});
+
+// Submit Jokes to Firebase
+database.ref("chuckJokes").on("child_added", function(snapshot) {
+  console.log(snapshot.val().joke);
+});
+// END SUBMIT PAGE
 
 // AJAX Function
 function sendToAjax() {
@@ -44,7 +68,6 @@ $.ajax({
     method: "GET"
   })
   .done(function(response) {
-    console.log(response);
     if(response.result === null) {
       console.log("this is blank");
       $.ajax({
@@ -52,7 +75,6 @@ $.ajax({
         method: "GET"
       })
       .done(function(response) {
-        console.log(response);
         chuckAnswer = response.value;
         $('.answer-p').html(chuckAnswer);
       })
@@ -113,24 +135,3 @@ function assignGifs() {
     }
   })
 }
-
-// Submit Jokes / Push to Firebase
-function pushChuck() {
-  database.ref().push({
-    joke: joke
-  });
-  var thanksText = $('.thanks');
-  thanksText.html("<h1>Thanks for contributing!</h1>");
-  $('.form-group').empty();
-}
-
-// Click Function 
-$("#submit-jokes").click(function() {
-  joke = $("#joke").val().trim();
-  pushChuck();
-});
-
-// Submit Jokes to Firebase
-database.ref().on("child_added", function(snapshot) {
-  console.log(snapshot.val().joke);
-});

@@ -9,4 +9,3 @@
 	TO DO
 =========================================
 - Add Functionality that pulls from Firebase and Chuck Norris API.
-- Add some sort of thanks for submitting a Chuck Norris joke.

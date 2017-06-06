@@ -315,6 +315,10 @@ textarea {
   margin-bottom: 20px;
 }
 
+.post-style label {
+  margin-bottom: 10px;
+}
+
 .group:after {
   content: "";
   display: table;
