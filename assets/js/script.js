@@ -20,6 +20,7 @@ var allURL = "https://api.chucknorris.io/jokes/search?query=all";
 var query = "";
 var randomQuery = [];
 var jokeStorage = [];
+var selectJokes = [];
 var chuckAnswer = "";
 var joke = "";
 var title = "";
@@ -59,6 +60,10 @@ $.ajax({
   for (var i=0; i < response.result.length; i++) {
     jokeStorage.push(response.result[i].value);
   }
+  selectJokes = jokeStorage.filter(function(word){
+    return word.includes("women");
+  });
+  return selectJokes;
 })
 // END SUBMIT PAGE
 
@@ -157,7 +162,8 @@ function assignGifs() {
 // var stringOne = "rice pudding grass";
 
 // var arr = [string, stringOne];
+// arrTest = ["men", "from", ""]
 
-// var a arr.filter(function(b) {
-//   return b.includes("dog");
-// });
+// var testTest = arrTest.filter(function(word){
+//     return word.includes("men");
+//   });
