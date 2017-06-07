@@ -75,7 +75,7 @@ $.ajax({
         method: "GET"
       })
       .done(function(response) {
-        chuckAnswer = response.value;
+        chuckAnswer = response.value.joke;
         $('.answer-p').html(chuckAnswer);
       })
     } else {
