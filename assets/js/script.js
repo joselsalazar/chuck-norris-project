@@ -95,7 +95,7 @@ $.ajax({
     // Filter out curse words
     var filter = ['cock', 'fuck', 'fucks', 'fucking', 'motherfucking', 'fucked-up', 'bone', 'sex', 'boner','8=D', 'gynaecologist',
      'Kegel', 'virginity','spanking','ovulation', 'ejaculation','lesbian','sexual', 'porn','Jenner','cunts','penal','orgasms','Sex',
-     'blowjob','wang','slept with','deflowered','boners','penis','Norrising','Dawkwins'];
+     'blowjob','wang','slept with','deflowered','boners','penis','Norrising','Dawkins'];
 
     $('.answer-p').text(function(i, txt){
       // iterate over all words
