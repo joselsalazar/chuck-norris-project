@@ -55,7 +55,7 @@ function sendToAjax() {
   event.preventDefault();
   query = $('#query').val().trim();
   queryURL = "https://api.chucknorris.io/jokes/search?query=" + query;
-  backupQueryURL = "https://api.chucknorris.io/jokes/random";
+  backupQueryURL = "http://api.icndb.com/jokes/random?exclude=[explicit]";
   runAJAX();
   assignGifs();
   emptyAll();
@@ -135,3 +135,15 @@ function assignGifs() {
     }
   })
 }
+
+// Put All Results in Array and use Filter to return a random
+// use includes
+
+// var string = "cat giraffe dog";
+// var stringOne = "rice pudding grass";
+
+// var arr = [string, stringOne];
+
+// var a arr.filter(function(b) {
+//   return b.includes("dog");
+// });
