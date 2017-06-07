@@ -32,11 +32,11 @@ Parser Script:  utilizing Firebase,
 
 Demonstration of Application:
 -----------------------------------------------------------------------
-1.  Chuck Norris Life Advice - shows Chuck quote and GIFs (suggested: bird)
+1.  Chuck Norris Life Advice - shows Chuck quote and GIFs (suggested: bird,men - try and stay away from 'women')
 2.  Joke Submission
 3.  Forum
 
 Directions for future development:
 -------------------------------------------------------------------------
 1.  Add reply features to the forum posts
-2.  Ratings feature (not built into APIs, some censoring was handled by the applicaton itself - creating an array of 'bad' words that doesn't allow a quote to display if the undesirable word is found in the quote)
+2.  Ratings feature (currently utilizes an array of words)
