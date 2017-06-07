@@ -1,0 +1,42 @@
+Chuck Norris Life Advice
+
+Overall application concept & motivation for developement:
+-----------------------------------------------------------------------
+In a world of Dear Abby, Ask Amy, Dan Savage, Miss Manners, etc ..we realized there was something missing.  Scattered across the internet were bits of pieces of wisdom from the master of all things, but nowhere was there a centralized website that brought it all together.  So we created the Chuck Norris Life Advice Website. 
+
+Design Process:
+----------------------------------------------------------------------
+Technologies used (briefly describing how they work)
+HTML/CSS: 
+
+Bootstrap:  as everyone is familiar with, Bootstrap is a framework that allows you to quickly create responsive websites.  
+
+Sass:  "syntactically awesome stylesheets"  Sass that allows you to use some features that currently don't exist in CSS, while also writing code that is more readable.  One of the features we utlized in our application was variables.  Using the "$" sign, you can create a variable and value(s) to it.  
+
+Example:  $font-stack: Helvetica, sans-serif;
+
+body {
+	font: $font-stack; 
+} 
+
+other features of Sass include nesting, operators, inheritance and more (that we didn't use in this application because we're new to Sass.) Sass files are interpreted into CSS files. 
+
+Firebase:  Jokes from the 2 Chuck Norris APIs are stored in one Firebase Database, the Forum Posts are stored in another.  
+
+ChuckNorris.io:  JSON API that retrieves either a random Chuck fact when it's called (can also be called by category) https://api.chucknorris.io/jokes/random?category={category}
+
+ICNDb.com... the Internet Chuck Norris Database.  For this API, we pulled the collection of jokes into the Firebase Database.  
+
+Parser Script:  utilizing Firebase, 
+
+
+Demonstration of Application:
+-----------------------------------------------------------------------
+1.  Chuck Norris Life Advice
+2.  Joke Submission
+3.  Forum
+
+Directions for future development:
+-------------------------------------------------------------------------
+1.  Add reply features to the forum posts
+2.  Mobile Application?
