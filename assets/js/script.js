@@ -93,7 +93,7 @@ $.ajax({
     }
 
     // Filter out curse words
-    var filter = ['cock', 'fuck', 'fucks', 'fucking', 'motherfucking', 'fucked-up'];
+    var filter = ['cock', 'fuck', 'fucks', 'fucking', 'motherfucking', 'fucked-up', 'bone', 'sex', 'boner'];
 
     $('.answer-p').text(function(i, txt){
       // iterate over all words
