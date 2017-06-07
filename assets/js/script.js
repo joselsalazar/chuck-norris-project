@@ -16,8 +16,10 @@ const APIKey = "dc6zaTOxFJmzC";
 
 // Initialize Variables
 var queryURL = "";
+var allURL = "https://api.chucknorris.io/jokes/search?query=all";
 var query = "";
 var randomQuery = [];
+var jokeStorage = [];
 var chuckAnswer = "";
 var joke = "";
 var title = "";
@@ -46,8 +48,18 @@ $("#submit-jokes").click(function() {
 
 // Submit Jokes to Firebase
 database.ref("chuckJokes").on("child_added", function(snapshot) {
-  console.log(snapshot.val().joke);
+  jokeStorage.push(snapshot.val().joke);
 });
+
+$.ajax({
+  url: allURL,
+  method: "GET"
+})
+.done(function(response) {
+  for (var i=0; i < response.result.length; i++) {
+    jokeStorage.push(response.result[i].value);
+  }
+})
 // END SUBMIT PAGE
 
 // AJAX Function
