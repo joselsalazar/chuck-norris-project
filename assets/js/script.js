@@ -30,7 +30,7 @@ function emptyAll() {
   $('.chuck-jokes').find('input[type=text]').val("");
 }
 
-// SUBMIT PAGE
+// SUBMIT PAGE ================== //
 // Submit Jokes / Push to Firebase
 function pushChuck() {
   database.ref("chuckJokes").push({
@@ -47,92 +47,27 @@ $("#submit-jokes").click(function() {
   pushChuck();
 });
 
-// Submit Jokes to Firebase
+// END SUBMIT PAGE ================ //
+
+// Pull Jokes From Firebase
+
 database.ref("chuckJokes").on("child_added", function(snapshot) {
-  jokeStorage.push(snapshot.val().joke);
+    jokeStorage.push(snapshot.val().joke);
 });
 
-$.ajax({
-  url: allURL,
-  method: "GET"
-})
-.done(function(response) {
-  for (var i=0; i < response.result.length; i++) {
-    jokeStorage.push(response.result[i].value);
-  }
-  selectJokes = jokeStorage.filter(function(word){
-    return word.includes("women");
-  });
-  return selectJokes;
-})
-// END SUBMIT PAGE
 
-// AJAX Function
+// Run Functions
 function sendToAjax() {
   event.preventDefault();
   query = $('#query').val().trim();
-  queryURL = "https://api.chucknorris.io/jokes/search?query=" + query;
-  backupQueryURL = "http://api.icndb.com/jokes/random?exclude=[explicit]";
-  runAJAX();
   assignGifs();
   emptyAll();
-}
-
-// AJAX Call For Chuck Norris Facts
-function runAJAX() {
-$.ajax({
-    url: queryURL,
-    method: "GET"
-  })
-  .done(function(response) {
-    if(response.result === null) {
-      console.log("this is blank");
-      $.ajax({
-        url: backupQueryURL,
-        method: "GET"
-      })
-      .done(function(response) {
-        chuckAnswer = response.value.joke;
-        $('.answer-p').html(chuckAnswer);
-      })
-    } else {
-      for (var i=0; i<response.result.length; i++){
-        var responses = response.result[i].value;
-        randomQuery.push(responses);
-      }
-      chuckAnswer = randomQuery[Math.floor(Math.random() * randomQuery.length)];
-      console.log(chuckAnswer);
-      $('.answer-p').html(chuckAnswer);
-    }
-
-    String.prototype.repeat = function(num){
-      return new Array(num + 1).join(this);
-    }
-
-    // Filter out curse words
-    var filter = ['cock', 'fuck', 'fucks', 'fucking', 'motherfucking', 'fucked-up', 'bone', 'sex', 'boner','8=D', 'gynaecologist',
-     'Kegel', 'virginity','spanking','ovulation', 'ejaculation','lesbian','sexual', 'porn','Jenner','cunts','penal','orgasms','Sex',
-     'blowjob','wang','slept with','deflowered','boners','penis','Norrising','Dawkins'];
-
-    $('.answer-p').text(function(i, txt){
-      // iterate over all words
-      for(var i=0; i<filter.length; i++){
-        // Create a regular expression and make it global
-        var pattern = new RegExp('\\b' + filter[i] + '\\b', 'g');
-        // Create a new string filled with '*'
-        var replacement = '*'.repeat(filter[i].length);
-        txt = txt.replace(pattern, replacement);
-      }
-
-      // returning txt will set the new text value for the current element
-      return txt;
-    });
-  });
+  runSearch();
 }
 
 // Giphy Function
 function assignGifs() {
-  giphyURL = "http://api.giphy.com/v1/gifs/search?q=norris+" + query + "&api_key=" + APIKey;
+  giphyURL = "http://api.giphy.com/v1/gifs/search?q=norris+" + query + "&api_key=" + APIKey + "&rating=pg";
   $.ajax({
     url: giphyURL,
     method: "GET"
@@ -152,18 +87,42 @@ function assignGifs() {
         oddDiv.append(gif);
       }
     }
-  })
+  });
 }
 
-// Put All Results in Array and use Filter to return a random
-// use includes
+function runSearch() {
+  selectJokes = jokeStorage.filter(function(word){
+    return word.toLowerCase().includes(query.toLowerCase());
+  });
 
-// var string = "cat giraffe dog";
-// var stringOne = "rice pudding grass";
+  if (selectJokes.length > 0) {
+    chuckAnswer = selectJokes[Math.floor(Math.random() * selectJokes.length)];
+    $('.answer-p').html(chuckAnswer);
+    
+  } else {
+    chuckAnswer = jokeStorage[Math.floor(Math.random() * jokeStorage.length)];
+    $('.answer-p').html(chuckAnswer);
+    console.log("random answer");
+  }
 
-// var arr = [string, stringOne];
-// arrTest = ["men", "from", ""]
 
-// var testTest = arrTest.filter(function(word){
-//     return word.includes("men");
-//   });
+// CENSORSHIP =========================================
+
+  // Filter out curse words
+  var filter = ['cock', 'fuck', 'fucks', 'fucking', 'motherfucker', 'motherfucking', 'fucked-up', 'bone', 'sex', 'boner','8=D', 'gynaecologist',
+       'Kegel', 'virginity','spanking','ovulation', 'ejaculation','lesbian','sexual', 'porn','Jenner','cunts','penal','orgasms','Sex',
+       'blowjob','wang','slept with','deflowered','boners','penis','Norrising','Dawkins'];
+
+  $('.answer-p').text(function(i, txt){
+    // iterate over all words
+    for(var i=0; i<filter.length; i++){
+    // Create a regular expression and make it global
+    var pattern = new RegExp('\\b' + filter[i] + '\\b', 'g');
+    // Create a new string filled with '*'
+    var replacement = '*'.repeat(filter[i].length);
+    txt = txt.replace(pattern, replacement);
+  }
+  // returning txt will set the new text value for the current element
+  return txt;
+});
+};

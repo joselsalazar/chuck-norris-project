@@ -11,7 +11,7 @@ var config = {
 // Firebase variables
 firebase.initializeApp(config);
 var database = firebase.database();
-var queryURL = "http://api.icndb.com/jokes/"
+var queryURL = "https://api.chucknorris.io/jokes/search?query=all"
 
 // Run AJAX Functions to Mass Add Jokes to FIrebase DB
 $.ajax({
@@ -19,10 +19,10 @@ $.ajax({
 	method: "GET"
 })
 .done(function(response) {
-	
-	for (var i =0; i < response.value.length; i++) {
-	console.log(response.value[i].joke);
-	var joke = response.value[i].joke;
+	// console.log(response.result[0].value);
+	for (var i =0; i < response.result.length; i++) {
+	console.log(response.result[i].value);
+	var joke = response.result[i].value;
 		database.ref("chuckJokes").push({
 		  joke: joke
 	});
