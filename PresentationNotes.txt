@@ -33,6 +33,8 @@ Parser Script:  utilizing Firebase,
 Demonstration of Application:
 -----------------------------------------------------------------------
 1.  Chuck Norris Life Advice - shows Chuck quote and GIFs (suggested: bird,men - try and stay away from 'women')
+	a.) Good examples that are not too dirty: "Phone", "Grenade", "Food", "Heart", "Evolution"
+	b.) To best show off the "Submit" functionality, add a joke containing the word "Teflon".
 2.  Joke Submission
 3.  Forum
 
