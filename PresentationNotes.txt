@@ -21,7 +21,7 @@ body {
 
 other features of Sass include nesting, operators, inheritance and more (that we didn't use in this application because we're new to Sass.) Sass files are interpreted into CSS files. 
 
-Firebase:  Jokes from the 2 Chuck Norris APIs are stored in one Firebase Database, the Forum Posts are stored in another.  
+Firebase:  Jokes from the 2 Chuck Norris APIs are stored in one Firebase Database, the Forum Posts are stored in another. Any new jokes submitted are also sent to the Firebase Database. 
 
 ChuckNorris.io:  JSON API that retrieves either a random Chuck fact when it's called (can also be called by category) https://api.chucknorris.io/jokes/random?category={category}
 
