@@ -67,7 +67,7 @@ function sendToAjax() {
 
 // Giphy Function
 function assignGifs() {
-  giphyURL = "http://api.giphy.com/v1/gifs/search?q=norris+" + query + "&api_key=" + APIKey + "&rating=pg";
+  giphyURL = "https://api.giphy.com/v1/gifs/search?q=norris+" + query + "&api_key=" + APIKey + "&rating=pg";
   $.ajax({
     url: giphyURL,
     method: "GET"
